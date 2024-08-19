@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage"
+             Title="Welcome to the calculator!"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Grid Padding="20" RowSpacing="10" ColumnSpacing="10">
+                <!-- Define rows and columns with flexible sizing -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" /> <!-- For Entry -->
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Display Entry -->
+                <Entry x:Name="ResultEntry"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="4"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Center"
+                       IsReadOnly="True"
+                       FontSize="50"
+                       Text="0"
+                       />
+
+                <!-- Row 1: Buttons for C, +/-, %, / -->
+                <Button Grid.Row="1" Grid.Column="0" Text="C" FontSize="30" Clicked="clearInput" />
+                <Button Grid.Row="1" Grid.Column="1" Text="DEL" Grid.ColumnSpan="2" FontSize="30" Clicked="backSpace" />
+                <Button Grid.Row="1" Grid.Column="3" Text="÷" BackgroundColor="#FF9500" TextColor="White" FontSize="30" Clicked="onSymbolClicked" />
+
+                <!-- Row 2: Buttons for 7, 8, 9, * -->
+                <Button Grid.Row="2" Grid.Column="0" Text="7" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="2" Grid.Column="1" Text="8" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="2" Grid.Column="2" Text="9" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="2" Grid.Column="3" Text="*" BackgroundColor="#FF9500" TextColor="White" FontSize="30" Clicked="onSymbolClicked" />
+
+                <!-- Row 3: Buttons for 4, 5, 6, - -->
+                <Button Grid.Row="3" Grid.Column="0" Text="4" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="3" Grid.Column="1" Text="5" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="3" Grid.Column="2" Text="6" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="3" Grid.Column="3" Text="-" BackgroundColor="#FF9500" TextColor="White" FontSize="30" Clicked="onSymbolClicked" />
+
+                <!-- Row 4: Buttons for 1, 2, 3, + -->
+                <Button Grid.Row="4" Grid.Column="0" Text="1" Clicked="onSymbolClicked" FontSize="30" />
+                <Button Grid.Row="4" Grid.Column="1" Text="2" Clicked="onSymbolClicked" FontSize="30" />
+                <Button Grid.Row="4" Grid.Column="2" Text="3" Clicked="onSymbolClicked" FontSize="30" />
+                <Button Grid.Row="4" Grid.Column="3" Text="+" BackgroundColor="#FF9500" TextColor="White" FontSize="30" Clicked="onSymbolClicked" />
+
+                <!-- Row 5: Buttons for 0, ., = -->
+                <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="0" HorizontalOptions="FillAndExpand" FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="5" Grid.Column="2" Text="." FontSize="30" Clicked="onSymbolClicked" />
+                <Button Grid.Row="5" Grid.Column="3" Text="=" BackgroundColor="#FF9500" TextColor="White" FontSize="30" Clicked="calculateResult" />
+            </Grid>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
